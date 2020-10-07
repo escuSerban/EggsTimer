@@ -2,7 +2,6 @@
 <resources>
     <!--Text values of cooking time intervals -->
     <string-array name="egg_array">
-        <item>Test only, better not use it for cooking :)</item>
         <item>Soft Boiled</item>
         <item>Slightly Firmer</item>
         <item>Firm Yolk</item>
@@ -10,7 +9,6 @@
     </string-array>
     <!--Cooking time intervals in minutes -->
     <integer-array name="minutes_array">
-        <item>0</item>
         <item>4</item>
         <item>6</item>
         <item>10</item>

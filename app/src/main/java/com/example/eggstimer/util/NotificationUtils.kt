@@ -28,13 +28,12 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         applicationContext,
         NOTIFICATION_ID,
         contentIntent,
-        PendingIntent.FLAG_UPDATE_CURRENT
-    )
+        PendingIntent.FLAG_UPDATE_CURRENT)
 
     val eggImage = BitmapFactory.decodeResource(
         applicationContext.resources,
-        R.drawable.cooked_egg
-    )
+        R.drawable.cooked_egg)
+
     val bigPicStyle = NotificationCompat.BigPictureStyle()
         .bigPicture(eggImage)
         .bigLargeIcon(null)
@@ -52,12 +51,10 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         applicationContext,
         applicationContext.getString(R.string.egg_notification_channel_id)
     )
-
         .setSmallIcon(R.drawable.cooked_egg)
         .setContentTitle(
             applicationContext
-                .getString(R.string.notification_title)
-        )
+                .getString(R.string.notification_title))
         .setContentText(messageBody)
 
         .setContentIntent(contentPendingIntent)

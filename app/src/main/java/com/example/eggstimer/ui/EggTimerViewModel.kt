@@ -60,8 +60,7 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
             getApplication(),
             REQUEST_CODE,
             notifyIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
+            PendingIntent.FLAG_UPDATE_CURRENT)
 
         timerLengthOptions = app.resources.getIntArray(R.array.minutes_array)
         //If alarm is not null, resume the timer back for this alarm
@@ -71,7 +70,7 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
     }
 
     /**
-     * Turns on or off the alarm
+     * Turns on or off the alarm.
      *
      * @param isChecked, alarm status to be set.
      */
@@ -98,10 +97,8 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
         _alarmOn.value?.let {
             if (!it) {
                 _alarmOn.value = true
-                val selectedInterval = when (timerLengthSelection) {
-                    0 -> second * 10 //For testing only
-                    else -> timerLengthOptions[timerLengthSelection] * minute
-                }
+                val selectedInterval = timerLengthOptions[timerLengthSelection] * minute
+
                 val triggerTime = SystemClock.elapsedRealtime() + selectedInterval
 
                 val notificationManager =
@@ -115,8 +112,7 @@ class EggTimerViewModel(private val app: Application) : AndroidViewModel(app) {
                     alarmManager,
                     AlarmManager.ELAPSED_REALTIME_WAKEUP,
                     triggerTime,
-                    notifyPendingIntent
-                )
+                    notifyPendingIntent)
 
                 viewModelScope.launch {
                     saveTime(triggerTime)
